@@ -1,21 +1,12 @@
-# compiled output
-/tmp
-aot/*
-dist/*
-
-# dependencies
 node_modules
-bower_components
-jspm_packages
-
-# IDEs and editors
-/.idea
-
-# ignore js and map files
-typings
-app/**/*.map
 app/**/*.js
-app/*.js.map
-app/*.js
-app/main-ts
-system-config.js*
+app/**/*.js.map
+typings
+npm-debug.log
+public/ng2
+*.bak
+.idea
+*.iml
+*.ipr
+public/js/bundle.min.js
+public/js/bundle.min.js.gz

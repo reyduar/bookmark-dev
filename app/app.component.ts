@@ -2,7 +2,20 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'app/views/bookmarks.html'
-})
+    styles: [`h1 {
+	color: white;
+	background: darkgray;
+	padding: 20px;
+}
+`],
+    template: `
+<h1>My First {{name}} app</h1>
+<router-outlet></router-outlet>
 
-export class AppComponent {}
+<a [routerLink]="['/']">Home</a> | <a [routerLink]="['/about/', { id: 2 }]">About</a>`,
+})
+export class AppComponent {
+    name: string = "Angular 2 on Express";
+
+    constructor() {}
+}

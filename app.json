@@ -1,7 +1,6 @@
 {
-  "name": "Bookmarks for developer",
-  "description": "created by ariel duarte",
-  "repository": "https://github.com/reyduar/bookmark-dev",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "name": "angular2-express-slim",
+  "description": "Starter application of Angular2 and Express",
+  "repository": "https://github.com/vladotesanovic/angular2-express-slim",
   "keywords": ["angular2", "express", "node"]
 }

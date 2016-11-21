@@ -1,5 +1,5 @@
 {
-  "name": "angular2-express-slim",
+  "name": "bookmark-dev",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,10 +8,10 @@
     "tsc:w": "tsc -w",
     "prod": "NODE_ENV=production ./bin/www",
     "build:prod": "node bin/bundler.js --prod",
-    "postinstall": "npm run build:prod"
+    "postinstall": "npm start && npm run build:prod"
   },
   "repository": {
-    "url": "https://github.com/vladotesanovic/angular2-express-slim"
+    "url": "https://github.com/reyduar/bookmark-dev"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

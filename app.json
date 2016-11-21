@@ -1,0 +1,8 @@
+{
+  "name": "Bookmarks for developer",
+  "description": "created by ariel duarte",
+  "repository": "https://github.com/reyduar/bookmark-dev",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}

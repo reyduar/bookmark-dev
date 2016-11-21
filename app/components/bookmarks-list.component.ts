@@ -47,7 +47,7 @@ export class BookmarksListComponent implements OnInit{
 
   deleteBookmark(id:string){
     this._bookmarksService.deleteBookmark(id)
-    bookmarkOperation.subscribe(
+    .subscribe(
         response => {
           this._router.navigate(["bookmarks"]);
           this.getBookmarks();

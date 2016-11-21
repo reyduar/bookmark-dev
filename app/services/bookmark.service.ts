@@ -16,9 +16,9 @@ export class BookmarkService {
   constructor (private _http: Http) {}
 
     // private instance variable to hold base url
-   //private serverUrl = 'https://heroku-api-rest.herokuapp.com/bookmarks';
+   private serverUrl = 'https://heroku-api-rest.herokuapp.com/bookmarks';
    // Local server
-   private serverUrl = 'http://localhost:8080/bookmarks';
+   //private serverUrl = 'http://localhost:8080/bookmarks';
 
    // Fetch all existing Bookmarks
    getBookmarks(){

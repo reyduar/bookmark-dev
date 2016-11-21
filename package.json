@@ -2,6 +2,9 @@
   "name": "bookmarks",
   "version": "1.0.0",
   "author": "ariel duarte",
+  "engines": {
+      "node": "6.9.1"
+    },
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",

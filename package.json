@@ -8,7 +8,7 @@
     "tsc:w": "tsc -w",
     "prod": "NODE_ENV=production ./bin/www",
     "build:prod": "node bin/bundler.js --prod",
-    "postinstall": "npm run build:prod"
+    "postinstall": "npm run tsc && npm run build:prod"
   },
   "repository": {
     "url": "https://github.com/reyduar/bookmark-dev"

@@ -7,11 +7,7 @@ import { AddBookmarkComponent } from "./components/add-bookmark.component";
 import { BookmarkDetailsComponent } from "./components/bookmark-details.component";
 
 const appRoutes: Routes = [
-	{
-		path: '',
-		redirectTo: 'bookmarks',
-		pathMatch: 'full'
-	},
+	{	path: '',	pathMatch: 'full', component: BookmarksListComponent	},
 	{ path: "bookmarks", component: BookmarksListComponent },
 	{ path: "add", component: AddBookmarkComponent },
 	{ path: "details/:id", component: BookmarkDetailsComponent },
@@ -20,4 +16,4 @@ const appRoutes: Routes = [
 
 export const appRoutingProviders: any[] = [];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: true });

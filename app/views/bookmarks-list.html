@@ -12,9 +12,9 @@
         <div class="col-lg-10 col-lg-offset-1">
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                    <input id="input_search_id" type="text" class="form-control input-lg" placeholder="Search bookmarks.." required />
+                    <input id="input_search_id" type="text" class="form-control input-lg" placeholder="Search by bookmark name.." required [(ngModel)]="searchTerm" />
                     <span class="input-group-btn">
-                <button id="button_search_id" class="btn btn-info btn-lg" type="button">
+                <button id="button_search_id" class="btn btn-info btn-lg" type="button" (click)="search()">
                     <i class="glyphicon glyphicon-search"></i>
                 </button>
             </span>
@@ -27,8 +27,8 @@
                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add bookmark
                 </a>
             </div>
-            <div class="loading">
-              <img src="img/loader.gif" alt="Waiting to bookmarks..." *ngIf="loading == 'show'" />
+            <div class="loading" *ngIf="loading == 'show'">
+              <img src="img/loader.gif" alt="Waiting to bookmarks..." />
             </div>
             <table id="bookmarks-list-id" class="table table-hover">
                 <tbody *ngFor="let bookmark of bookmarks">
@@ -41,9 +41,9 @@
                                 </div>
                                 <div class="col-xs-6 col-md-4 text-right">
                                     <div class="btn-group">
-                                        <a [routerLink]="['/details', bookmark.id]" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-search"></span></a>
-                                        <a [routerLink]="['/edit', bookmark.id]" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-                                        <a (click)="deleteBookmark(bookmark.id)" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-trash"></span></a>
+                                        <a [routerLink]="['/details', bookmark.id]" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></a>
+                                        <a [routerLink]="['/edit', bookmark.id]" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                                      <!--  <a (click)="deleteBookmark(bookmark.id)" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-trash"></span></a> -->
                                     </div>
                                 </div>
                             </div>
@@ -63,6 +63,7 @@
                     </tr>
                 </tbody>
             </table>
+            <div style="height: 300px;" *ngIf="box == 'show'"></div>
         </div>
     </div>
 </div>

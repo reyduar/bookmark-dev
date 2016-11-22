@@ -47,7 +47,7 @@ export class AddBookmarkComponent implements OnInit{
           // Empty model
           this.newBookmark = new Bookmark(this.id, this.nameParam, this.authorParam, this.descriptionParam,  this.urlParam, this.typeParam, this.codeParam, this.imageParam, this.categoryParam, this.tagsParam, this.createdDTParam);
           // Switch editing status
-          this._router.navigate(["bookmarks"]);
+          this._router.navigate(["/"]);
       },
       err => {
           // Log errors if any
@@ -94,7 +94,7 @@ ngOnInit(){
       err => {
         // Log errors if any
         console.log(err);
-        this._router.navigate(["bookmarks"]);
+        this._router.navigate(["/"]);
       });
   }
 }

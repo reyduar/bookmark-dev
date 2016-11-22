@@ -1,6 +1,7 @@
 {
   "name": "bookmark-dev",
   "version": "0.0.0",
+  "author": "ariel duarte",
   "private": true,
   "scripts": {
     "start": "concurrently \"tsc -w\" \"nodemon ./bin/www\" ",
@@ -8,7 +9,7 @@
     "tsc:w": "tsc -w",
     "prod": "NODE_ENV=production ./bin/www",
     "build:prod": "node bin/bundler.js --prod",
-    "postinstall": "npm run tsc && npm run build:prod"
+    "postinstall": "npm run build:prod"
   },
   "repository": {
     "url": "https://github.com/reyduar/bookmark-dev"
@@ -38,7 +39,8 @@
     "systemjs-builder": "^0.15.17",
     "typescript": "^2.0.3",
     "yargs": "^4.7.1",
-    "compression": "^1.6.2"
+    "compression": "^1.6.2",
+    "bootstrap": "^3.3.6"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",

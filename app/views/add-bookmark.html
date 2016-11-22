@@ -1,0 +1,68 @@
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3>{{title}}</h3>
+        </div>
+    </div>
+</div>
+<div class="container mtb" style="margin-bottom: 50px;">
+    <div class="row">
+      <div class="col-lg-8">
+        <h4>Important to read!</h4>
+        <div class="hline"></div>
+        <p>Hey buddy please fill in all the fields in the best way, try to use a rational vocabulary and remember your bookmarks will be useful for others as well as you can find useful to others.</p>
+      </div>
+    </div>
+    <form #myFormulario="ngForm" (ngSubmit)="onSubmit()" role="form">
+        <div class="text-right">
+          <button type="submit" class="btn btn-theme" [disabled]="!myFormulario.form.valid"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</button>
+        </div>
+        <div class="form-group">
+            <label for="name-input">Title</label>
+            <input [(ngModel)]="newBookmark.name" name="name" class="form-control" type="text" placeholder="Bookmark title" #name="ngModel" required>
+            <em class="csmall2" *ngIf="!name.valid">* required entry field</em>
+        </div>
+        <div class="form-group">
+            <label for="author-input">Author</label>
+            <input [(ngModel)]="newBookmark.author" name="author" class="form-control" type="text" placeholder="Author name" #author="ngModel" pattern="[A-Za-z\s]*" required>
+            <em class="csmall2" *ngIf="!author.valid">* required entry field</em>
+        </div>
+        <div class="form-group">
+            <label for="type-input">Category</label>
+            <input [(ngModel)]="newBookmark.category" name="category" class="form-control" type="text" placeholder="E.g. Development, Tips and Tricks, Angular2, Code" #category="ngModel" required>
+            <em class="csmall2" *ngIf="!category.valid">* required entry field</em>
+        </div>
+        <div class="form-group">
+            <label for="description-input">Description</label>
+            <textarea rows="5" name="description" class="form-control" type="text" placeholder="Add a description about this bookmark" #description="ngModel" [(ngModel)]="newBookmark.description"></textarea>
+            <em class="csmall2" *ngIf="!name.valid">* required entry field</em>
+        </div>
+        <div class="form-group">
+            <label for="type-input">Type</label>
+            <input [(ngModel)]="newBookmark.type" name="type" class="form-control" type="text" placeholder="Type E.g. YouTube, Blog, Foro" #type="ngModel" required>
+            <em class="csmall2" *ngIf="!type.valid">* required entry field</em>
+        </div>
+        <div class="form-group">
+            <label for="example-url-input">Web Site</label>
+            <input [(ngModel)]="newBookmark.url" name="url" class="form-control" type="url" placeholder="Web site where is the bookmark E.g. https://getbootstrap.com" #url="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="example-url-input">Image Url</label>
+            <input [(ngModel)]="newBookmark.image" name="image" class="form-control" type="url" placeholder="This image can be a models image or something image about your bookmark e.g. https://scotch.io/wp-content/uploads/2016/10/SeqTHj9kQf6xUkcqxuE1_scotch-http.jpg" #image="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="code-input">Tags</label>
+            <input name="tags" class="form-control" type="text" placeholder="Add tags comma separated e.g. UI, Design, Developer, TypeScript" #tags="ngModel"  [(ngModel)]="newBookmark.tags" required>
+            <em class="csmall2" *ngIf="!tags.valid">* required entry field</em>
+        </div>
+        <div class="form-group">
+            <label for="code-input">Code Example</label>
+            <textarea rows="5" name="code" class="form-control" type="text" placeholder="Add code example here" #code="ngModel"  [(ngModel)]="newBookmark.code"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="code-input">Create Date</label>
+            <input name="createdDT" class="form-control" type="text" placeholder="E.g. April 25, 2014" #createdDT="ngModel"  [(ngModel)]="newBookmark.createdDT" required>
+            <em class="csmall2" *ngIf="!createdDT.valid">* required entry field</em>
+        </div>
+    </form>
+</div>

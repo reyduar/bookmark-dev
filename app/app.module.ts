@@ -9,12 +9,13 @@ import { routing, appRoutingProviders } from './app.routing';
 
 import { BookmarksListComponent } from './components/bookmarks-list.component';
 import { FooterComponent } from './components/footer.component';
+import { AboutComponent } from './components/about.component';
 import { AddBookmarkComponent } from './components/add-bookmark.component';
 import { BookmarkDetailsComponent } from './components/bookmark-details.component';
 
 @NgModule({
   imports:      [ BrowserModule, routing, FormsModule, HttpModule ],
-  declarations: [ AppComponent, BookmarksListComponent, FooterComponent, AddBookmarkComponent, BookmarkDetailsComponent],
+  declarations: [ AppComponent, BookmarksListComponent, FooterComponent, AddBookmarkComponent, BookmarkDetailsComponent, AboutComponent ],
   providers: [ appRoutingProviders ],
   bootstrap:    [ AppComponent ]
 })

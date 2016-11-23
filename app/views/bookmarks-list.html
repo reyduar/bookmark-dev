@@ -37,13 +37,13 @@
                         <td class="list-group-item-text header-card">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-8 text-left">
-                                    <h4>{{bookmark.name}}</h4>
+                                    <h4><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> {{bookmark.name}}</h4>
                                 </div>
                                 <div class="col-xs-6 col-md-4 text-right">
                                     <div class="btn-group">
-                                        <a [routerLink]="['/details', bookmark.id]" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></a>
-                                        <a [routerLink]="['/edit', bookmark.id]" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-                                      <!--  <a (click)="deleteBookmark(bookmark.id)" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-trash"></span></a> -->
+                                        <a [routerLink]="['/details', bookmark.id]" class="btn btn-theme"><span class="glyphicon glyphicon-search"></span></a>
+                                        <a [routerLink]="['/edit', bookmark.id]" class="btn btn-theme"><span class="glyphicon glyphicon-edit"></span></a>
+                                      <!--  <a (click)="deleteBookmark(bookmark.id)" class="btn btn-xs btn-theme"><span class="glyphicon glyphicon-trash"></span></a> -->
                                     </div>
                                 </div>
                             </div>

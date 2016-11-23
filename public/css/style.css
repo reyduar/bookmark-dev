@@ -77,7 +77,7 @@ a:focus {
 	BOOTSTRAP MODIFICATIONS & TWEAKS
 ################################################################# */
 .navbar {
-	min-height: 70px;
+	min-height: 90px;
 	padding-top: 10px;
 	margin-bottom: 0px;
 }
@@ -353,15 +353,17 @@ a:focus {
 /* General Tweaks */
 
 #blue {
-	background: #00b3fe;
+	background: #ffd777;
 	margin-top: 60px;
 	margin-bottom: 60px;
 	padding-top: 25px;
 	padding-bottom: 25px;
+	border-bottom: 1px solid #c9aa5f;
 }
 
 #blue h3 {
-	color: white;
+	color: #384452;
+	margin-top: 40px;
 	margin-left: 15px;
 }
 
@@ -503,9 +505,10 @@ a:focus {
 /*Class for header table*/
 .header-card {
 	font-weight: bold;
-	background: #384452;
-	color: white;
+	background: #ffd777;
+	color: #384452;
 	font-size: 15;
+	border: 1px solid #c9aa5f;
 }
 
 /*Loading*/

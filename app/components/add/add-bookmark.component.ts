@@ -2,13 +2,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Bookmark } from '../model/bookmark';
-import { BookmarkService } from '../services/bookmark.service';
+import { Bookmark } from '../../model/bookmark';
+import { BookmarkService } from '../../services/bookmark.service';
 
 import {Observable} from 'rxjs/Rx';
 
 @Component({
-    templateUrl: 'views/add-bookmark.html',
+    templateUrl: 'components/add/add-bookmark.html',
     providers: [ BookmarkService ]
 })
 

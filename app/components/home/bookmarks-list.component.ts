@@ -1,14 +1,14 @@
 // ====== ariel duarte ======
 import { Component, OnInit } from '@angular/core';
-import { Bookmark } from '../model/bookmark';
-import { BookmarkService } from '../services/bookmark.service';
+import { Bookmark } from '../../model/bookmark';
+import { BookmarkService } from '../../services/bookmark.service';
 import { Router } from '@angular/router';
 
 import {Observable} from 'rxjs/Rx';
 
 @Component({
     selector: 'bookmarks-list',
-    templateUrl: 'views/bookmarks-list.html',
+    templateUrl: 'components/home/bookmarks-list.html',
     providers: [ BookmarkService ]
 })
 
@@ -18,26 +18,60 @@ export class BookmarksListComponent implements OnInit{
   public loading:string;
   public box:string;
   public searchTerm:string;
+  public currentPage: number;
+  public totalPages: number;
+  public totalRealPages: number;
+  public pages:number[] = [];
 
    constructor(private _bookmarksService: BookmarkService, private _router: Router){
      this.searchTerm = "";
      this.box = 'show';
+     this.currentPage = 0;
    }
 
   getBookmarks(){
     //let bookmark_table = <HTMLElement>document.querySelector(".loading");
     //bookmark_table.style.visibility = "visilbe";
     this.loading = 'show';
-    this._bookmarksService.getBookmarks()
+    this._bookmarksService.getAllBookmarksPageable()
     .subscribe(
         //Bind to view
         results => {
           this.bookmarks = results._embedded.bookmarks;
+          this.totalPages = results.page.totalPages;
+          this.totalRealPages = this.totalPages - 1;
+
           this.loading = 'hide';
           if(this.bookmarks.length >= 3){
             this.box = 'hide';
           }else{
              this.box = 'show';
+          }
+          //bookmark_table.style.display = "none";
+        },
+      err => {
+        // Log errors if any
+        console.log(err);
+      });
+  }
+
+  searchPageable(){
+    //let bookmark_table = <HTMLElement>document.querySelector(".loading");
+    //bookmark_table.style.visibility = "visilbe";
+    this.loading = 'show';
+    this._bookmarksService.getBookmarksBySearches(this.searchTerm, this.currentPage)
+    .subscribe(
+        //Bind to view
+        results => {
+          this.bookmarks = results._embedded.bookmarks;
+          this.totalPages = results.page.totalPages;
+          this.totalRealPages = this.totalPages - 1;
+
+          this.loading = 'hide';
+          if(this.bookmarks.length >= 3){
+            this.box = 'hide';
+          }else{
+            this.box = 'show';
           }
           //bookmark_table.style.display = "none";
         },
@@ -86,5 +120,20 @@ export class BookmarksListComponent implements OnInit{
         this._router.navigate(["bookmarks"]);
         this.getBookmarks();
       });
+  }
+
+  /*Pageable control*/
+  previous(){
+    if(this.currentPage+1 > 1){
+      this.currentPage--;
+      this.searchPageable();
+    }
+  }
+
+  next(){
+    if(this.currentPage+1 < this.totalPages){
+      this.currentPage++;
+      this.searchPageable();
+    }
   }
 }

@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 
 
 @Component({
-    selector: 'about',
-    templateUrl: 'views/about.html'
+    selector: 'footer',
+    templateUrl: 'components/footer/footer.html'
 })
 
-export class AboutComponent {
+export class FooterComponent {
   public autor:string;
   public anio:number;
 

@@ -2,10 +2,10 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { BookmarksListComponent } from "./components/bookmarks-list.component";
-import { AddBookmarkComponent } from "./components/add-bookmark.component";
-import { BookmarkDetailsComponent } from "./components/bookmark-details.component";
-import { AboutComponent } from "./components/about.component";
+import { BookmarksListComponent } from "./components/home/bookmarks-list.component";
+import { AddBookmarkComponent } from "./components/add/add-bookmark.component";
+import { BookmarkDetailsComponent } from "./components/detail/bookmark-details.component";
+import { AboutComponent } from "./components/about/about.component";
 
 const appRoutes: Routes = [
 	{	path: '',	pathMatch: 'full', component: BookmarksListComponent	},

@@ -16,9 +16,9 @@ export class BookmarkService {
   constructor (private _http: Http) {}
 
     // private instance variable to hold base url
-   private serverUrl = 'https://heroku-api-rest.herokuapp.com/bookmarks';
+   //private serverUrl = 'https://heroku-api-rest.herokuapp.com/bookmarks';
    // Local server
-   //private serverUrl = 'http://localhost:8080/bookmarks';
+   private serverUrl = 'http://localhost:8080/bookmarks';
 
    // Fetch all existing Bookmarks
    getBookmarks(){
@@ -73,4 +73,23 @@ export class BookmarkService {
                              //...errors if any
                              .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
          }
+
+         // Fetch all existing Bookmarks
+         getAllBookmarksPageable(){
+               // ...using get request
+               return this._http.get(this.serverUrl +'/search/findBySearches?term=&page=0&size=10')
+                              // ...and calling .json() on the response to return data
+                               .map((res:Response) => res.json())
+                               //...errors if any
+                               .catch((error:any) => Observable.throw(error.json().error || 'Server error to get bookmarks'));
+           }
+
+         getBookmarksBySearches(term: string, page: number){
+               // ...using get request
+               return this._http.get(this.serverUrl +'/search/findBySearches?term='+term+'&page='+page+'&size=10')
+                              // ...and calling .json() on the response to return data
+                               .map((res:Response) => res.json())
+                               //...errors if any
+                               .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+        }
 }

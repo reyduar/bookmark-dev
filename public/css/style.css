@@ -1,13 +1,9 @@
-################################################################# */
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,700,900);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,900);
 @import url("prettyPhoto.css") screen;
 @import url("hoverex-all.css") screen;
-
-/*	################################################################
-	1. GENERAL STRUCTURES
-################################################################# */
-	* {
+/*	################################################################*/
+* {
 		margin: 0;
 		padding: 0px;
 	}
@@ -73,9 +69,6 @@ a:focus {
 	text-align: center
 }
 
-/*	################################################################
-	BOOTSTRAP MODIFICATIONS & TWEAKS
-################################################################# */
 .navbar {
 	min-height: 90px;
 	padding-top: 10px;
@@ -191,9 +184,6 @@ a:focus {
 	border-bottom: 2px solid #ffffff;
 	margin-bottom: 25px;
 }
-/*	################################################################
-	SITE WRAPS
-################################################################# */
 
 #headerwrap {
 	background-color: #00b3fe;
@@ -347,11 +337,6 @@ a:focus {
 	color: #00b3fe
 }
 
-/*	################################################################
-	PAGE CONFIGURATIONS
-################################################################# */
-/* General Tweaks */
-
 #blue {
 	background: #ffd777;
 	margin-top: 60px;
@@ -468,40 +453,6 @@ a:focus {
 	color: blue;
 }
 
-/*Begin input search */
-#custom-search-input {
-    padding: 3px;
-    border: solid 1px #E4E4E4;
-    border-radius: 6px;
-    background-color: #fff;
-}
-
-    #custom-search-input input {
-        border: 0;
-        box-shadow: none;
-    }
-
-    #custom-search-input button {
-        margin: 2px 0 0 0;
-        background: none;
-        box-shadow: none;
-        border: 0;
-        color: #666666;
-        padding: 0 8px 0 10px;
-        border-left: solid 1px #ccc;
-    }
-
-        #custom-search-input button:hover {
-            border: 0;
-            box-shadow: none;
-            border-left: solid 1px #ccc;
-        }
-
-    #custom-search-input .glyphicon-search {
-        font-size: 23px;
-    }
-/*End input search*/
-
 /*Class for header table*/
 .header-card {
 	font-weight: bold;
@@ -516,4 +467,155 @@ a:focus {
 	list-style: none;
 	text-decoration: none;
 
+}
+
+.mipagination {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  margin-top: 10px;
+}
+.mipagination li {
+  display: inline;
+  text-align: center;
+}
+.mipagination a {
+  float: left;
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px 12px;
+  color: #384452;
+  margin-left: -1px;
+  border: 1px solid transparent;
+  line-height: 1.5;
+}
+.mipagination a.active {
+  cursor: default;
+}
+.mipagination a:active {
+  outline: none;
+}
+
+.modal-4 a {
+  margin: 0 5px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  background-color: #F7C12C;
+}
+.modal-4 a.prev {
+  -moz-border-radius: 50px 0 0 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px 0 0 50px;
+  width: 100px;
+}
+.modal-4 a.next {
+  -moz-border-radius: 0 50px 50px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 50px 50px 0;
+  width: 100px;
+}
+.modal-4 a:hover {
+  background-color: #FFA500;
+}
+.modal-4 a.active, .modal-4 a:active {
+  background-color: #FFA100;
+}
+
+
+/***********************
+ * Essential Structure *
+ ***********************/
+.flexsearch--wrapper {
+	height: auto;
+	width: auto;
+	max-width: 100%;
+	overflow: hidden;
+	background: transparent;
+	margin: 0;
+	position: static;
+}
+
+.flexsearch--form {
+	overflow: hidden;
+	position: relative;
+}
+
+.flexsearch--input-wrapper {
+	padding: 0 66px 0 0; /* Right padding for submit button width */
+	overflow: hidden;
+}
+
+.flexsearch--input {
+  width: 100%;
+}
+
+/***********************
+ * Configurable Styles *
+ ***********************/
+.flexsearch {
+  padding: 0 25px 0 200px; /* Padding for other horizontal elements */
+}
+
+.flexsearch--input {
+  -webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+ 	height: 60px;
+  padding: 0 46px 0 10px;
+	border-color: #888;
+  border-radius: 35px; /* (height/2) + border-width */
+  border-style: solid;
+	border-width: 5px;
+  margin-top: 15px;
+  color: #333;
+  font-family: 'Helvetica', sans-serif;
+	font-size: 26px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.flexsearch--submit {
+  position: absolute;
+	right: 0;
+	top: 0;
+	display: block;
+	width: 60px;
+	height: 60px;
+  padding: 0;
+  border: none;
+	margin-top: 15px; /* margin-top + border-width */
+  margin-right: 10px; /* border-width */
+	background: transparent;
+  color: #888;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.flexsearch--input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.flexsearch--input:focus.flexsearch--submit {
+ 	color: #333;
+}
+
+.flexsearch--submit:hover {
+  color: #333;
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+	color: #888;
+}
+
+input:-moz-placeholder {
+  color: #888
 }

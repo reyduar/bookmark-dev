@@ -2,12 +2,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { Bookmark } from '../model/bookmark';
-import { BookmarkService } from '../services/bookmark.service';
+import { Bookmark } from '../../model/bookmark';
+import { BookmarkService } from '../../services/bookmark.service';
 
 @Component({
     selector: "bookmark-details",
-    templateUrl: 'views/bookmark-details.html',
+    templateUrl: 'components/detail/bookmark-details.html',
     providers: [ BookmarkService ]
 })
 

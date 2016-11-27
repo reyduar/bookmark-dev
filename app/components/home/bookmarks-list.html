@@ -7,19 +7,16 @@
 </div>
 
 <div class="container">
-
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
-            <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input id="input_search_id" type="text" class="form-control input-lg" placeholder="Search by bookmark name.." required [(ngModel)]="searchTerm" />
-                    <span class="input-group-btn">
-                <button id="button_search_id" class="btn btn-info btn-lg" type="button" (click)="search()">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </span>
-                </div>
-            </div>
+          <div class="flexsearch--wrapper">
+            <form class="flexsearch--form">
+              <div>
+                <input [(ngModel)]="searchTerm" name="search" class="flexsearch--input" type="search" placeholder="find by title | author | type">
+              </div>
+              <button class="flexsearch--submit" (click)="searchPageable()"><i class="glyphicon glyphicon-search"></i></button>
+            </form>
+          </div>
         </div>
         <div class="col-lg-10 col-lg-offset-1">
             <div class="text-right" style="margin-bottom: 20px; margin-top: 20px;">
@@ -30,6 +27,21 @@
             <div class="loading" *ngIf="loading == 'show'">
               <img src="img/loader.gif" alt="Waiting to bookmarks..." />
             </div>
+
+            <div class="text-center">
+            <ul class="mipagination modal-4">
+              <li><a href="#" (click)="previous()" class="prev">
+                <i class="fa fa-chevron-left"></i>
+                  Previous
+                </a>
+              </li>
+                <li><a><b>{{currentPage + 1}}</b></a></li>
+                <li><a>of</a></li>
+                <li><a><b>{{totalPages}}</b></a></li>
+              <li><a href="#" (click)="next()" class="next"> Next
+                <i class="fa fa-chevron-right"></i>
+              </a></li>
+            </ul></div>
             <table id="bookmarks-list-id" class="table table-hover">
                 <tbody *ngFor="let bookmark of bookmarks">
                     <!--Black header card -->
@@ -43,7 +55,7 @@
                                     <div class="btn-group">
                                         <a [routerLink]="['/details', bookmark.id]" class="btn btn-theme"><span class="glyphicon glyphicon-search"></span></a>
                                         <a [routerLink]="['/edit', bookmark.id]" class="btn btn-theme"><span class="glyphicon glyphicon-edit"></span></a>
-                                      <!--  <a (click)="deleteBookmark(bookmark.id)" class="btn btn-xs btn-theme"><span class="glyphicon glyphicon-trash"></span></a> -->
+                                        <a (click)="deleteBookmark(bookmark.id)" class="btn btn-theme"><span class="glyphicon glyphicon-trash"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -53,11 +65,11 @@
                     <tr>
                         <td id="cwrap">
                             <p class="list-group-item-text">
-                              <span *ngIf="bookmark.author" class="glyphicon glyphicon-user"></span> {{bookmark.author}}
-                              <span *ngIf="bookmark.type" class="glyphicon glyphicon-globe"></span> {{bookmark.type}}
-                              <span *ngIf="bookmark.url" class="glyphicon glyphicon-new-window"></span> <a href="{{bookmark.url}}" target="_blank"> {{bookmark.url}}</a>
+                              <span *ngIf="bookmark.author" class="glyphicon glyphicon-user"></span>  {{bookmark.author}} &nbsp;
+                              <a *ngIf="bookmark.type" href="{{bookmark.url}}" target="_blank"> <span  class="glyphicon glyphicon-globe"></span>  {{bookmark.type}}</a> &nbsp;
+                              <span *ngIf="bookmark.createdDT" class="glyphicon glyphicon-calendar"></span><small class="csmall"> {{bookmark.createdDT}} </small>
                             </p>
-                            <p *ngIf="bookmark.description" class="list-group-item-text text-justify"><small>Description: {{bookmark.description}}</small></p>
+                            <p *ngIf="bookmark.description" class="list-group-item-text text-justify"><small> {{bookmark.description}}</small></p>
                             <br />
                         </td>
                     </tr>

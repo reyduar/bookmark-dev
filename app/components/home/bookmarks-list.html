@@ -28,7 +28,7 @@
               <img src="img/loader.gif" alt="Waiting to bookmarks..." />
             </div>
 
-            <div class="text-center">
+            <div class="text-center" *ngIf="navPages == 'show'">
             <ul class="mipagination modal-4">
               <li><a href="#" (click)="previous()" class="prev">
                 <i class="fa fa-chevron-left"></i>

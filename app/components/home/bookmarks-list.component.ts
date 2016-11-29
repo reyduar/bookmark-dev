@@ -17,6 +17,7 @@ export class BookmarksListComponent implements OnInit{
   public bookmarks:Bookmark[];
   public loading:string;
   public box:string;
+  public navPages:string;
   public searchTerm:string;
   public currentPage: number;
   public totalPages: number;
@@ -26,6 +27,7 @@ export class BookmarksListComponent implements OnInit{
    constructor(private _bookmarksService: BookmarkService, private _router: Router){
      this.searchTerm = "";
      this.box = 'show';
+     this.navPages = 'hide';
      this.currentPage = 0;
    }
 
@@ -38,11 +40,15 @@ export class BookmarksListComponent implements OnInit{
         //Bind to view
         results => {
           this.bookmarks = results._embedded.bookmarks;
-          this.totalPages = results.page.totalPages;
-          this.totalRealPages = this.totalPages - 1;
-
-          this.loading = 'hide';
-          if(this.bookmarks.length >= 3){
+          if(results._embedded.bookmarks.length > 0){
+            this.totalPages = results.page.totalPages;
+            this.totalRealPages = this.totalPages - 1;
+            this.navPages = 'show';
+            this.loading = 'hide';
+          }else{
+            this.navPages = 'hide';
+          }
+          if(results._embedded.bookmarks.length >= 3){
             this.box = 'hide';
           }else{
              this.box = 'show';
@@ -64,11 +70,17 @@ export class BookmarksListComponent implements OnInit{
         //Bind to view
         results => {
           this.bookmarks = results._embedded.bookmarks;
-          this.totalPages = results.page.totalPages;
-          this.totalRealPages = this.totalPages - 1;
+          if(results._embedded.bookmarks.length > 0){
+            this.totalPages = results.page.totalPages;
+            this.totalRealPages = this.totalPages - 1;
+            this.navPages = 'show';
+            this.loading = 'hide';
+          }else{
+            this.navPages = 'hide';
+          }
 
-          this.loading = 'hide';
-          if(this.bookmarks.length >= 3){
+
+          if(results._embedded.bookmarks.length >= 3){
             this.box = 'hide';
           }else{
             this.box = 'show';

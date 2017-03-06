@@ -7,15 +7,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { routing, appRoutingProviders } from './app.routing';
 
-import { BookmarksListComponent } from './components/home/bookmarks-list.component';
+import { ListComponent } from './components/home/list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
-import { AddBookmarkComponent } from './components/add/add-bookmark.component';
-import { BookmarkDetailsComponent } from './components/detail/bookmark-details.component';
+import { AddComponent } from './components/add/add.component';
+import { DetailsComponent } from './components/detail/details.component';
 
 @NgModule({
   imports:      [ BrowserModule, routing, FormsModule, HttpModule ],
-  declarations: [ AppComponent, BookmarksListComponent, FooterComponent, AddBookmarkComponent, BookmarkDetailsComponent, AboutComponent ],
+  declarations: [ AppComponent, ListComponent, FooterComponent, AddComponent, DetailsComponent, AboutComponent ],
   providers: [ appRoutingProviders ],
   bootstrap:    [ AppComponent ]
 })

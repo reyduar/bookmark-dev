@@ -466,7 +466,11 @@ a:focus {
 .loading {
 	list-style: none;
 	text-decoration: none;
+	text-align: center;
+}
 
+.color-default {
+	color: #cd0000;
 }
 
 .mipagination {

@@ -9,21 +9,19 @@
 <!-- *****************************************************************************************************************
  DETAIL
  ***************************************************************************************************************** -->
- <div style="height: 500px;" *ngIf="!bookmark"></div>
- <div class="container mtb" *ngIf="bookmark" >
+ <div style="height: 500px;" *ngIf="!lyric"></div>
+ <div class="container mtb" *ngIf="lyric" >
  	<div class="row">
 
  		<! -- SINGLE POST -->
  		<div class="col-lg-8">
  			<! -- Blog Post 1 -->
-	 		<p><img class="img-responsive" src="{{bookmark.image}}"></p>
 	 		<a href="single-post.html"><h3 class="ctitle">Description.</h3></a>
-	 		<p><small class="csmall">Published: {{bookmark.createdDT}}.</small> | <small class="csmall2">By: {{bookmark.author}}</small></p>
-      <p>
-        {{bookmark.description}}
-      </p>
-      <h4>Code</h4>
-	 		<blockquote>{{bookmark.code}}</blockquote>
+      <p><small class="csmall">Artist: {{lyric.artist}}.</small> | <small class="csmall2">Album: {{lyric.album}}</small></p>
+      <h4>English</h4>
+      <p class="e2e-inner-html-bound" [innerHTML]="lyric.lyricOrig"></p>
+      <h4>Spanish</h4>
+	 		<p>{{lyric.lyricTrans}}</p>
 
 	 		<div class="spacing"></div>
 	 		<h6>SHARE:</h6>
@@ -33,21 +31,19 @@
 	 			<a href="#"><i class="fa fa-tumblr"></i></a>
 	 			<a href="#"><i class="fa fa-google-plus"></i></a>
 	 		</p>
-
 		</div>
 
 
  		<! -- SIDEBAR -->
  		<div class="col-lg-4">
-	 		<h4>Bookmark Detail</h4>
+	 		<h4>Lyric Information</h4>
 	 		<div class="hline"></div>
-      <p><b>Title:</b> {{bookmark.name}}</p>
-      <p><b>Date:</b> {{bookmark.createdDT}}</p>
-      <p><b>Author:</b> {{bookmark.author}}</p>
-      <p><b>Category:</b> {{bookmark.category}}</p>
-      <p><b>Tagged:</b> {{bookmark.tags}}</p>
-      <p><b>Type:</b> {{bookmark.type}}.</p>
-      <p><b>Website:</b> <a  href="{{bookmark.url}}" target="_blank">{{bookmark.url}}</a></p>
+      <p><b>Title:</b> {{lyric.name}}</p>
+      <p><b>Artist:</b> {{lyric.artist}}</p>
+      <p><b>Album:</b> {{lyric.album}}</p>
+      <p><b>Year:</b> {{lyric.year}}</p>
+      <p><b>Country:</b> {{lyric.country}}</p>
+      <p><b><a  href="{{darkLyric}}" target="_blank"> DarkLyric.com</a></b></p>
 
 	 		<div class="spacing"></div>
 

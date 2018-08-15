@@ -14,18 +14,18 @@
               <div>
                 <input [(ngModel)]="searchTerm" name="search" class="flexsearch--input" type="search" placeholder="find by title | author | type">
               </div>
-              <button class="flexsearch--submit" (click)="searchPageable()"><i class="glyphicon glyphicon-search"></i></button>
+              <button class="flexsearch--submit" (click)="getLyrics()"><i class="glyphicon glyphicon-search"></i></button>
             </form>
           </div>
         </div>
         <div class="col-lg-10 col-lg-offset-1">
             <div class="text-right" style="margin-bottom: 20px; margin-top: 20px;">
                 <a type="button" class="btn btn-theme" [routerLink]="['/add']">
-                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add bookmark
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Lyric
                 </a>
             </div>
             <div class="loading" *ngIf="loading == 'show'">
-              <img src="img/loader.gif" alt="Waiting to bookmarks..." />
+              <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i><span class="sr-only">Loading...</span>
             </div>
 
             <div class="text-center" *ngIf="navPages == 'show'">
@@ -43,19 +43,19 @@
               </a></li>
             </ul></div>
             <table id="bookmarks-list-id" class="table table-hover">
-                <tbody *ngFor="let bookmark of bookmarks">
+                <tbody *ngFor="let lyric of lyrics">
                     <!--Black header card -->
                     <tr>
                         <td class="list-group-item-text header-card">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-8 text-left">
-                                    <h4><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> {{bookmark.name}}</h4>
+                                    <h4><i class="fa fa-music"></i> {{lyric.name}}</h4>
                                 </div>
                                 <div class="col-xs-6 col-md-4 text-right">
                                     <div class="btn-group">
-                                        <a [routerLink]="['/details', bookmark.id]" class="btn btn-theme"><span class="glyphicon glyphicon-search"></span></a>
-                                        <a [routerLink]="['/edit', bookmark.id]" class="btn btn-theme"><span class="glyphicon glyphicon-edit"></span></a>
-                                        <a (click)="deleteBookmark(bookmark.id)" class="btn btn-theme"><span class="glyphicon glyphicon-trash"></span></a>
+                                        <a [routerLink]="['/details', lyric._id]" class="btn btn-theme"><span class="glyphicon glyphicon-search"></span></a>
+                                        <a [routerLink]="['/edit', lyric._id]" class="btn btn-theme"><span class="glyphicon glyphicon-edit"></span></a>
+                                        <a (click)="deleteLyric(lyric._id)" class="btn btn-theme"><span class="glyphicon glyphicon-trash"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -65,11 +65,12 @@
                     <tr>
                         <td id="cwrap">
                             <p class="list-group-item-text">
-                              <span *ngIf="bookmark.author" class="glyphicon glyphicon-user"></span>  {{bookmark.author}} &nbsp;
-                              <a *ngIf="bookmark.type" href="{{bookmark.url}}" target="_blank"> <span  class="glyphicon glyphicon-globe"></span>  {{bookmark.type}}</a> &nbsp;
-                              <span *ngIf="bookmark.createdDT" class="glyphicon glyphicon-calendar"></span><small class="csmall"> {{bookmark.createdDT}} </small>
+                              <span *ngIf="lyric.artist" class="glyphicon glyphicon-user"></span>  {{lyric.artist}} &nbsp;
+                              <span *ngIf="lyric.album" class="glyphicon glyphicon-user"></span>  {{lyric.album}} &nbsp;
+                              <span *ngIf="lyric.country" class="glyphicon glyphicon-calendar"></span><small class="csmall"> {{lyric.country}} </small>
+                              <span *ngIf="lyric.year" class="glyphicon glyphicon-calendar"></span><small class="csmall"> {{lyric.year}} </small>
                             </p>
-                            <p *ngIf="bookmark.description" class="list-group-item-text text-justify"><small> {{bookmark.description}}</small></p>
+                            <p *ngIf="lyric.lyricOrig" class="list-group-item-text text-justify"><small> {{lyric.lyricOrig}}</small></p>
                             <br />
                         </td>
                     </tr>

@@ -11,7 +11,7 @@ export class FooterComponent {
   public anio:number;
 
    constructor(){
-       this.anio = 2016;
+       this.anio = 2017;
        this.autor = "Ariel Duarte";
    }
 }
